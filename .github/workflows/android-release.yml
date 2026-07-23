@@ -47,6 +47,11 @@ jobs:
       - name: Sync Web Bundle to Android Shell 📲
         run: npx cap sync android
 
+      - name: Force Gradle to use JDK 21 🎯
+        run: |
+          echo "org.gradle.java.home=$JAVA_HOME" >> android/gradle.properties
+          java -version
+
       - name: Build Android Debug APK 🤖
         run: |
           cd android
